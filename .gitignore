@@ -1,4 +1,5 @@
-# Python
+
+# Python cache files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -8,29 +9,25 @@ __pycache__/
 venv/
 env/
 
-# Pytest
+# Test and coverage files
 .pytest_cache/
-
-# Coverage
 .coverage
 htmlcov/
 
-# IDE
+# IDE and editor files
 .vscode/
 .idea/
 
-# Operating system
+# Operating system files
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Python distribution
-build/
-dist/
-*.egg-info/
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
 
-# Logs
-*.log
-# SQLite database
-database/*.db
-database/*.sqlite
-database/*.sqlite3
+# Temporary files
+*.tmp
+*.bak
