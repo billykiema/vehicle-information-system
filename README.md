@@ -1,73 +1,69 @@
 # Vehicle Information System
 
-A Python-based vehicle management application developed for a car rental agency. The system provides a graphical interface for managing cars, motorcycles, and trucks, tracking vehicle availability, and recording rental and return operations.
+A Python-based vehicle rental management application built with object-oriented programming, Tkinter, SQLite, and pytest. The system provides a graphical interface for managing cars, motorcycles, and trucks, monitoring vehicle availability, and recording rental and return operations.
 
-This project demonstrates object-oriented programming, layered application design, SQLite database persistence, input validation, error handling, and automated testing.
+## Project Overview
+
+The Vehicle Information System was developed to demonstrate practical Python programming skills, object-oriented design, database integration, GUI development, and automated testing.
+
+The application allows users to manage vehicle records through a desktop interface while maintaining vehicle information and rental status in a local SQLite database.
 
 ## Features
 
-- **Vehicle management:** Add, view, update, and remove vehicle records.
-- **Multiple vehicle types:** Manage cars, motorcycles, and trucks with type-specific attributes.
+- **Vehicle management:** Add, view, edit, and delete vehicle records.
+- **Multiple vehicle types:** Manage cars, motorcycles, and trucks.
 - **Rental management:** Rent available vehicles and return rented vehicles.
-- **Availability tracking:** View vehicle rental status and identify available vehicles.
-- **Search and filtering:** Find vehicles in the inventory.
-- **Dashboard statistics:** View totals for vehicles, vehicle types, available vehicles, and rented vehicles.
-- **Data persistence:** Store vehicle information and rental status in an SQLite database.
-- **Input validation:** Validate vehicle information and handle invalid operations.
-- **Automated testing:** Use pytest to test models, services, repository operations, and database persistence.
+- **Dashboard:** View vehicle totals, vehicle categories, availability, and rental status.
+- **Search and filtering:** Find vehicles and narrow displayed results.
+- **Data persistence:** Store vehicle information in an SQLite database.
+- **Input validation:** Validate vehicle information before processing operations.
+- **Error handling:** Handle invalid inputs and common application errors.
+- **Graphical user interface:** Use a Tkinter desktop interface to interact with the system.
+- **Automated testing:** Use pytest to test application functionality.
 
 ## Technologies Used
 
-- Python 3
-- Tkinter and ttk for the graphical user interface
-- SQLite for database storage
-- Object-oriented programming (OOP)
-- Abstract Base Classes (ABC)
-- pytest for automated testing
-- Visual Studio Code
-- Git and GitHub
+| Technology | Purpose |
+|---|---|
+| Python | Main programming language |
+| Object-oriented programming (OOP) | Organizing vehicle types and application logic |
+| Abstract base classes (ABC) | Defining common vehicle behavior |
+| Tkinter | Desktop graphical user interface |
+| SQLite | Local database storage |
+| pytest | Automated testing |
+| Git and GitHub | Version control and project hosting |
+| Visual Studio Code | Development environment |
 
-## Application Architecture
+## Application Screenshots
 
-The application separates responsibilities into different layers:
+Screenshots of the running application can be added to the `screenshots/` folder.
 
-- **Interfaces:** Define common vehicle behavior and support consistent handling of vehicle types.
-- **Models:** Represent cars, motorcycles, and trucks.
-- **Repositories:** Handle database operations and vehicle data persistence.
-- **Services:** Apply business rules and coordinate vehicle management operations.
-- **User interface:** Provides graphical and console-based interaction.
-- **Tests:** Verify expected behavior and help prevent regressions.
+To display a screenshot on the GitHub README, save an image in that folder and add a Markdown image reference. For example:
+
+```markdown
+![Vehicle Information System dashboard](screenshots/dashboard.png)
+```
+
+Replace `dashboard.png` with the actual screenshot filename.
 
 ## Project Structure
+
+The project is organized into separate modules to improve maintainability and separation of concerns.
 
 ```text
 VehicleInformationSystem/
 ├── app/
 │   ├── interfaces/
-│   │   ├── vehicle.py
-│   │   ├── car_vehicle.py
-│   │   ├── motor_vehicle.py
-│   │   └── truck_vehicle.py
 │   ├── models/
-│   │   ├── car.py
-│   │   ├── motorcycle.py
-│   │   └── truck.py
 │   ├── repositories/
-│   │   └── vehicle_repository.py
 │   ├── services/
-│   │   └── vehicle_service.py
 │   └── ui/
 │       ├── console_ui.py
 │       └── gui.py
 ├── database/
 │   └── vehicle_rental.db
 ├── tests/
-│   ├── test_car.py
-│   ├── test_motorcycle.py
-│   ├── test_truck.py
-│   ├── test_vehicle_repository.py
-│   ├── test_vehicle_service.py
-│   └── test_database_integration.py
+├── screenshots/
 ├── main.py
 ├── gui_main.py
 ├── requirements.txt
@@ -75,58 +71,63 @@ VehicleInformationSystem/
 └── README.md
 ```
 
-*Note: The structure above is a guide. Keep only files and folders that actually exist in your project, and adjust any filenames that differ.*
+*Note: This is a summary of the expected project layout. Adjust the tree to match the actual files and folders in your repository.*
+
+## Requirements
+
+- Python 3.10 or later is recommended, subject to compatibility with your project and installed dependencies.
+- pip, Python's package installer.
+- Git, if you intend to clone the repository.
+- Visual Studio Code or another Python-compatible editor is optional.
 
 ## Installation and Setup
 
-### 1. Install Python
+### 1. Clone the repository
 
-Install Python 3 and confirm that it is available from your terminal:
+Replace `YOUR-USERNAME` with your GitHub username.
 
-```powershell
-python --version
+```bash
+git clone https://github.com/YOUR-USERNAME/vehicle-information-system.git
+cd vehicle-information-system
 ```
 
-### 2. Open the project directory
+### 2. Create a virtual environment
 
-Open a terminal in the project root:
-
-```powershell
-cd C:\Projects\VehicleInformationSystem
-```
-
-### 3. Create and activate a virtual environment
+On Windows PowerShell:
 
 ```powershell
 python -m venv .venv
+```
+
+Activate the environment:
+
+```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, you can run the Python commands below using `.venv\Scripts\python.exe` without activating the environment.
+If PowerShell prevents activation, you can use the appropriate Python executable inside `.venv` without activating the environment.
 
-### 4. Install dependencies
+### 3. Install dependencies
 
 ```powershell
 python -m pip install -r requirements.txt
 ```
 
-### 5. Run the application
+## Running the Application
 
-Use the graphical entry point configured for your project. For example, if the root-level `gui_main.py` starts the application:
+To launch the graphical interface, run:
 
 ```powershell
 python gui_main.py
 ```
 
-If your GUI entry point is instead `app\gui_main.py`, use:
+If you want to use the console interface, check the entry point in `main.py` and run it if it launches that interface:
 
 ```powershell
-python -m app.gui_main
+python main.py
 ```
 
-Use the entry point that matches your actual project configuration.
-
-## Running Tests
+## Running the Tests
 
 Run the automated test suite from the project root:
 
@@ -134,50 +135,55 @@ Run the automated test suite from the project root:
 python -m pytest
 ```
 
-The current test suite has collected 68 tests, and all tests have passed in the latest validation.
+To display more detailed test results:
 
-## Database
+```powershell
+python -m pytest -v
+```
 
-The application uses SQLite to store vehicle records and rental status. Database integration tests verify that important changes persist across repository or service restarts.
+The test suite has previously passed **68 tests** during development. Run the commands above to verify the current version after making changes.
 
-Keep the database file and test database separate. Avoid committing personal, customer, or other sensitive data to a public repository.
+## Design and Architecture
 
-## Learning Outcomes
+The application separates responsibilities into different parts:
 
-This project demonstrates practical experience with:
+- **Interfaces:** Define common vehicle behavior and shared contracts.
+- **Models:** Represent vehicle types and their attributes.
+- **Repositories:** Handle database-related operations.
+- **Services:** Manage application operations and business rules.
+- **User interfaces:** Provide graphical and console-based interaction.
+- **Tests:** Check that application components behave as expected.
 
-- Designing classes and applying inheritance and polymorphism.
-- Using abstraction and encapsulation to organize vehicle behavior.
-- Separating models, repositories, services, and user-interface code.
-- Applying validation and error handling.
-- Integrating a relational database with a Python application.
-- Writing automated tests and validating changes.
-- Building and refining a desktop application using Tkinter.
+This organization makes the application easier to understand, test, and extend than a single large Python file.
 
 ## Future Improvements
 
 Potential enhancements include:
 
 - User authentication and role-based permissions.
-- Rental dates, customer records, and rental history.
-- Reports and exportable inventory summaries.
-- Improved database migrations and backup tools.
-- Additional integration and user-interface tests.
-- Packaging the application for easier installation.
-## Application Screenshots
+- Rental pricing and invoice generation.
+- Rental history and reporting.
+- Improved input validation and user feedback.
+- Database backup and restoration.
+- Automated continuous integration with GitHub Actions.
+- Additional unit and integration tests.
 
-### Main Dashboard
+## Learning Outcomes
 
-![Vehicle Information System dashboard](screenshots/dashboard.png)
+This project demonstrates practical experience with:
 
-### Vehicle Management
+- Python classes, inheritance, and abstraction.
+- Modular application development.
+- GUI programming with Tkinter.
+- SQLite database integration.
+- Automated testing with pytest.
+- Version control using Git and GitHub.
+- Organizing a software project for maintainability.
 
-![Vehicle management interface](screenshots/vehicle-management.png)
+## Author
 
-### Rental Status
-
-![Vehicle rental status](screenshots/rental-status.png)
+Developed as a programming and portfolio project to practise software development principles and build practical experience with Python.
 
 ## License
 
-Add the license you intend to use before distributing this project. If the repository does not yet contain a license file, do not claim that the project is licensed.
+No license has been specified yet. If you intend to make the project open source, consider choosing a license and adding a corresponding `LICENSE` file.
